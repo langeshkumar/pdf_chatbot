@@ -1,11 +1,17 @@
+import os
 from langchain_classic.chains import RetrievalQA
-from langchain_community.llms import Ollama
+from langchain_groq import ChatGroq
+from dotenv import load_dotenv
+load_dotenv()
 
 def create_rag_chain(vectorData):
 
-    llm = Ollama(
+    api_key = os.getenv('GROQ_API_KEY')
+
+    llm = ChatGroq(
         temperature=0,
-        model="llama3"
+        model_name="llama-3.1-8b-instant",
+        groq_api_key=api_key
     )
 
     retriever = vectorData.as_retriever()
