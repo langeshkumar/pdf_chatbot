@@ -299,7 +299,7 @@ with layout_center:
     if prompt := st.chat_input("Ask anything..."):
         
         if not is_context_ready:
-            ai_response = "⚠️ No active context file found. Please upload a PDF or paste a YouTube stream in the sidebar first."
+            ai_response = "⚠️ No active context file found. Please upload a PDF in the sidebar first."
         else:
             try:
                 # Use invoke instead of run to bypass modern LangChain deprecations
